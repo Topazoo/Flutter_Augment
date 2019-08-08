@@ -7,8 +7,8 @@ library AR_Rendering_Library;
 
 import 'package:arkit_plugin/arkit_plugin.dart';
 import 'package:arkit_plugin/utils/random_string.dart';
-import 'package:vector_math/vector_math_64.dart';
 import 'package:flutter_arkit_wrapper/Models/lib.dart';
 import 'package:flutter_arkit_wrapper/Model_Manager/lib.dart';
 
-part 'ar_renderer.dart';
+part 'Base/base_renderer.dart';
+part 'demo_renderer.dart';

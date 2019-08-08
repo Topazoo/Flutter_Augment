@@ -12,8 +12,8 @@ class AR_Scene extends StatefulWidget {
 
 class _AR_Scene_State extends State<AR_Scene> {
 
-  static final renderer = AR_Renderer();
+  static final renderer = new Demo_Renderer();
 
   @override
-  Widget build(BuildContext context) => Scaffold(body: renderer.render());
+  Widget build(BuildContext context) => Scaffold(body: renderer.render_scene());
 }

@@ -1,17 +1,19 @@
 part of AR_Rendering_Library;
 /*
     Author: Peter Swanson
-    Description: Renderer
-       Manages the scene state and objects in the scene using an
+    Description: Base Renderer
+       Shared logic for managing the scene state and objects in the scene using an
        ARKitController and a model manager.
 */
 
-class AR_Renderer {
+abstract class Base_Renderer {
 
   ARKitController controller; // Controls the scene
   AR_Model_Manager manager;  // Controls the models on the scene
 
-  void render_model(AR_Model model, [String key]) {
+  Base_Renderer() : manager = new AR_Model_Manager();
+
+  String render_model({String key, AR_Model model}) {
     /* Render a model to the scene. Models can be assigned a key or
        a key can be generated on insertion. Rendered models will automatically be 
        tracked by the renderer's model manager. */
@@ -21,23 +23,21 @@ class AR_Renderer {
     
     manager.store(key, model);
     controller.add(model.node);
+
+    return key;
   } 
 
-  void initialize(ARKitController arkitController) {
+  void render(ARKitController arkitController) {
     /* Initialize a renderer with the controller linked to the
        Flutter widget displaying the scene and a model manager. */
 
     controller = arkitController;
-    manager = new AR_Model_Manager();
-
-    final node = ARKitNode(
-        geometry: ARKitSphere(radius: 0.1), position: Vector3(0, 0, -0.5)
-    ); //DEBUG
-
-    render_model(AR_Model(node)); //DEBUG
+    _render();
   }
 
-  ARKitSceneView render() => 
-    ARKitSceneView(onARKitViewCreated: initialize, showStatistics: true);
+  void _render();
+
+  ARKitSceneView render_scene() => 
+    ARKitSceneView(onARKitViewCreated: render, showStatistics: true);
     /* Initialize the renderer and return a linked Flutter widget to display it */
 }
