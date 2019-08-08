@@ -7,18 +7,11 @@ part of AR_Manager_Library;
 */
 
 class AR_Model_Manager {
-  final Duration UPDATE_SPEED = Duration(milliseconds: 2);
 
   Map<String, AR_Model> _scene_models;
-  Timer tick_timer;
 
-  AR_Model_Manager()
-  {
-    /* Instantiate model storage and start async update loop */
-
-    _scene_models = new Map<String, AR_Model>();
-    tick_timer = new Timer.periodic(UPDATE_SPEED, (timer) => update_models());
-  }
+  AR_Model_Manager() : _scene_models = new Map<String, AR_Model>();
+  /* Instantiate model storage  */
   
   AR_Model fetch(String key) => (_scene_models.containsKey(key)) ? _scene_models[key] : null;
   /* Fetch a model by key */

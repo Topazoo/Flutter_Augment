@@ -2,7 +2,6 @@ part of AR_Models_Library;
 /*
     Author: Peter Swanson
     Description: Sphere Model
-      A sphere model (testing for now)
 */
 
 class AR_Sphere extends AR_Model {
