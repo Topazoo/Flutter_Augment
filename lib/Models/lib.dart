@@ -10,9 +10,11 @@ library AR_Models_Library;
 
     Models:
       - Base: The base model all models inherit from
+      - Shapes: (Sphere, )
 */
 
 import 'package:arkit_plugin/arkit_plugin.dart';
 import 'package:vector_math/vector_math_64.dart';
+
 part 'Base/base_model.dart';
-part 'sphere.dart';
+part 'Shapes/sphere.dart';

@@ -2,7 +2,12 @@ library AR_Rendering_Library;
 /*
     Author: Peter Swanson
     Description: Rendering Library
-      Manages the scene state and objects in the scene
+      Manages the scene state and models in the scene. A renderer is 
+      in essence the overall AR application logic, from adding the models
+      to the scene to handling global events.
+
+    Models:
+      - Base: The base model all models inherit from
 */
 
 import 'package:arkit_plugin/arkit_plugin.dart';
