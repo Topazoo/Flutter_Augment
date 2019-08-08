@@ -9,6 +9,6 @@ library AR_Widgets_Library;
 */
 
 import 'package:flutter/material.dart';
-import 'package:flutter_arkit_wrapper/Rendering/lib.dart';
+import 'package:flutter_arkit_wrapper/Renderers/lib.dart';
 
 part 'scene_widget.dart';
