@@ -2,11 +2,52 @@
 
 [![Flutter](https://img.shields.io/badge/Flutter-1.7-blue.svg)](https://flutter.dev/)
 [![flutter_arkit_plugin](https://img.shields.io/badge/flutter_arkit_plugin-0.2.1-green.svg)](https://pub.dev/packages/arkit_plugin)
+
 ### Develop augmented reality applications for iOS without the boilerplate
-#### Author: Peter Swanson 
+
+#### Author: Peter Swanson
+
 :warning: (Work in Progress)
 
-## Hierarchy
+## Overview
+
+Jumping into augmented reality development can be tough, especially if you're using Flutter. This library aims to greatly simplify that process. 
+
+[Oleksandr Leuschenko's port of ARKit](https://pub.dev/packages/arkit_plugin) removes a ton of the boilerplate required to get an AR app running in Flutter. My goal is to try to extend this port into a simple framework that supports.
+
+* **Model Management:**
+  * Easy 2D/3D model creation and state management.
+  * Model joining with shared and individual attributes.
+  * Model parent-child and sibling relationships.
+  * Model serialization and deserialization.
+  * Pre-built models.
+
+####
+
+* **An Engine:**
+  * An extendable update loop ([think Unity](https://docs.unity3d.com/Manual/ExecutionOrder.html)) that allows for model movement and animation.
+  * Simplified physics management.
+
+####
+
+* **Media Queries:**
+  * An interface for fetching/using external audio, image and text files.
+
+####
+
+* **Event Management:**
+  * Intuitive handlers/bindings for user and sensor input.
+
+## Installing
+
+You can install the current (work in progress version) by cloning this repo.
+When a release candidate is ready expect a standalone package!
+
+## API Reference
+
+COMING SOON
+
+## Library Hierarchy
 
 ### Model_Manager/
 
@@ -18,7 +59,7 @@
   * **Base/**
     * **base_model.dart:** The base attributes and methods that all models share.
   * **Shapes/**
-    * **sphere.dart** 
+    * **sphere.dart**
 
 ### Renderers/
 
@@ -42,18 +83,6 @@
 
 ### Engine
 
-* Model Serialization
-* Parent-Child Relationships
+* Parent-Child Relationships / Grouping / Joining
   * Individual properties
   * Group properties
-* Better Interfaces for All Classes
-
-### Visuals
-
-* Textures
-* Colors
-* Lighting
-
-### Audio
-
-* Load/Play
