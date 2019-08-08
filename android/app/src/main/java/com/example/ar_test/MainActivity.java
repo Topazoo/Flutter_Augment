@@ -1,4 +1,4 @@
-package com.example.ar_test;
+package com.example.flutter_arkit_wrapper;
 
 import android.os.Bundle;
 import io.flutter.app.FlutterActivity;

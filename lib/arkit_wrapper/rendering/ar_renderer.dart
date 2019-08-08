@@ -1,12 +1,16 @@
-part of AR_Kit;
+part of AR_Rendering_Library;
 
 class AR_Renderer {
+
+  final bool debug;
+
+  AR_Renderer({bool debug = true}) : this.debug = debug;
 
   ARKitController controller;
 
   void render_object(dynamic ar_object) => this.controller.add(ar_object);
 
-  void onARKitViewCreated(ARKitController arkitController) {
+  void initialize(ARKitController arkitController) {
     this.controller = arkitController;
 
     final node = ARKitNode(
@@ -15,4 +19,10 @@ class AR_Renderer {
 
     render_object(node);
   }
+
+  ARKitSceneView render() =>
+    ARKitSceneView(
+      onARKitViewCreated: initialize,
+      showStatistics: true,
+    );
 }
