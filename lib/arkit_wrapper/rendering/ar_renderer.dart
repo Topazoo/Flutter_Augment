@@ -7,17 +7,25 @@ class AR_Renderer {
   AR_Renderer({bool debug = true}) : this.debug = debug;
 
   ARKitController controller;
+  AR_Object_Manager manager;
 
-  void render_object(dynamic ar_object) => this.controller.add(ar_object);
+  void render_object(AR_Model model, [String key]) {
+    if(key == null)
+      key = randomString();
+    
+    manager.store(key, model);
+    controller.add(model.node);
+  } 
 
   void initialize(ARKitController arkitController) {
-    this.controller = arkitController;
+    controller = arkitController;
+    manager = new AR_Object_Manager();
 
     final node = ARKitNode(
         geometry: ARKitSphere(radius: 0.1), position: Vector3(0, 0, -0.5)
     );
 
-    render_object(node);
+    render_object(AR_Model(node));
   }
 
   ARKitSceneView render() =>
