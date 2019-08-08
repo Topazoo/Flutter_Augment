@@ -3,7 +3,7 @@
 Author: Peter Swanson
 (Work in Progress)
 
-[![arkit_plugin](https://img.shields.io/badge/AngularJS-0.2.1-green.svg)](https://pub.dev/packages/arkit_plugin)
+[![arkit_plugin](https://img.shields.io/badge/arkit_plugin-0.2.1-green.svg)](https://pub.dev/packages/arkit_plugin)
 
 Easy to use library for iOS augmented reality using Flutter and ARKit.
 
