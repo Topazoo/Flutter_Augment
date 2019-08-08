@@ -1,4 +1,9 @@
 part of AR_Widgets_Library;
+/*
+    Author: Peter Swanson
+    Description: Scene
+      Wraps and displays the AR scene renderer in a Flutter widget.
+*/
 
 class AR_Scene extends StatefulWidget {
   @override
