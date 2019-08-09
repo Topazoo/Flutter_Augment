@@ -12,6 +12,6 @@ class Demo_Renderer extends Base_Renderer {
   @override
   void _setup()
   {
-    render_model(model: AR_Sphere()); //DEBUG
+    render_model(model: AR_Sphere_Moving()); //DEBUG
   }
 }
