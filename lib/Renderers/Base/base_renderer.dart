@@ -28,7 +28,7 @@ abstract class Base_Renderer {
   AR_Model_Manager manager;
   
   Timer update_timer;
-  final Duration UPDATE_SPEED = Duration(milliseconds: 2);
+  final Duration UPDATE_SPEED = Duration(milliseconds: 1);
 
   Base_Renderer()
   {
@@ -69,7 +69,7 @@ abstract class Base_Renderer {
   } 
 
   ARKitSceneView render_scene() => 
-    ARKitSceneView(onARKitViewCreated: render, showStatistics: true);
+    ARKitSceneView(onARKitViewCreated: render, worldAlignment: ARWorldAlignment.camera);
     /* Initialize the renderer on successfull ARKit instantiation.
        Return a linked Flutter widget to display it */
 

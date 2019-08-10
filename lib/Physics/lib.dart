@@ -12,6 +12,7 @@ library AR_Physics_Library;
 */
 
 import 'package:flutter_arkit_wrapper/Models/lib.dart';
-import 'package:vector_math/vector_math_64.dart';
+
 part 'movement.dart';
+part 'boundary.dart';
 

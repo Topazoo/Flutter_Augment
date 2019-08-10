@@ -37,7 +37,18 @@ class AR_Model {
 
     (node != null) ? this.node = node : this.node = _node;
     (position != null) ? this.position = position : (node != null) ? this.position = node.position.value : null;
+
   } 
+
+  void set_position({double x, double y, double z})
+  {
+    if(node != null)
+    {
+      position.setValues(x, y, z);
+      node.position.value = new Vector3(x, y, z);
+      node.position.notifyListeners();
+    }
+  }
 
   void update() {}
   /* Derived classes can override this to add specific functionalities to
