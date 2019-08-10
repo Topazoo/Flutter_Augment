@@ -22,7 +22,14 @@ part of AR_Rendering_Library;
       - _update(): Runs when the update timer fires. Overridden by derived classes for specific update logic.
 */
 
-abstract class Base_Renderer {
+abstract class Base_Renderer extends StatefulWidget {
+
+  @override
+  _Base_Renderer_State createState() => _Base_Renderer_State();
+  
+}
+
+class _Base_Renderer_State extends State<Base_Renderer> {
 
   ARKitController controller; 
   AR_Model_Manager manager;
@@ -30,7 +37,7 @@ abstract class Base_Renderer {
   Timer update_timer;
   final Duration UPDATE_SPEED = Duration(milliseconds: 1);
 
-  Base_Renderer()
+  _Base_Renderer_State()
   {
     /* Instantiate model manager and start update timer */
 
@@ -76,6 +83,10 @@ abstract class Base_Renderer {
   void _setup() {}
   /* Overridden in derived classes to add AR application setup logic */
 
-  void _update() {}
+  void _update() {} 
   /* Overridden in derived classes to add periodic AR application logic */
+ 
+  @override
+  Widget build(BuildContext context) => render_scene();
+  /* Render the scene in a scaffold */
 }
