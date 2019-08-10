@@ -31,24 +31,29 @@ abstract class Base_Renderer extends StatefulWidget {
 
 }
 
-class _Base_Renderer_State extends State<Base_Renderer> {
+class _Base_Renderer_State extends State<Base_Renderer> with AR_Asset_Manager {
 
   ARKitController controller; 
-  AR_Model_Manager manager;
+  AR_Model_Manager model_manager;
+
+  Map config;
   
   Timer update_timer;
-  final Duration UPDATE_SPEED = Duration(milliseconds: 1);
 
   _Base_Renderer_State()
   {
-    /* Instantiate model manager and start update timer */
+    /* Instantiate model manager, load the configuration and start update timer */
 
-     manager = new AR_Model_Manager();
-     update_timer = new Timer.periodic(UPDATE_SPEED, (timer) => update_loop());
+    load_config().then((config)
+    {
+      this.config = config;
+      model_manager = new AR_Model_Manager();
+      update_timer = new Timer.periodic(Duration(milliseconds: config['UPDATE_INTERVAL_MS']), (timer) => update_loop());
+    });
   }
 
   void render(ARKitController arkitController) {
-    /* Set the controller and delegate application setup to derived class */
+  /* Set the controller and delegate application setup to derived class */
 
     controller = arkitController;
 
@@ -58,7 +63,7 @@ class _Base_Renderer_State extends State<Base_Renderer> {
   void update_loop() {
     /* Shared periodic AR application logic. Update all active models and call derived class logic */
 
-    manager.update_models(); 
+    model_manager.update_models(); 
 
     _update();
   }
@@ -71,7 +76,7 @@ class _Base_Renderer_State extends State<Base_Renderer> {
     if(key == null)
       key = randomString();
     
-    manager.store(key, model); // Track the model for updates
+    model_manager.store(key, model); // Track the model for updates
     controller.add(model.node); // Display the model
 
     return key;

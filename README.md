@@ -72,7 +72,7 @@ COMING SOON
 
 ## Library Hierarchy
 
-### Model_Manager/
+### Managers/
 
 * Tracks created ARKitNodes and updates them asynchronously on a loop.
 

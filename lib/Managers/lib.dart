@@ -10,7 +10,9 @@ library AR_Manager_Library;
       (see Models/Base/base_model.dart).
 */
 
-import 'dart:async';
+import 'package:flutter/services.dart' show rootBundle;
+import 'dart:convert';
 import 'package:flutter_arkit_wrapper/Models/lib.dart';
 
 part 'model_manager.dart';
+part 'asset_manager.dart';
