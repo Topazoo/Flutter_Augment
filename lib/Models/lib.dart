@@ -15,6 +15,9 @@ library AR_Models_Library;
 
 import 'package:arkit_plugin/arkit_plugin.dart';
 import 'package:vector_math/vector_math_64.dart';
+import 'package:flutter_arkit_wrapper/Physics/lib.dart';
 
 part 'Base/base_model.dart';
 part 'Shapes/sphere.dart';
+
+part 'Shapes/moving_sphere.dart';

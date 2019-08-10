@@ -11,7 +11,7 @@
 
 ## Overview
 
-Jumping into augmented reality development can be tough, especially if you're using Flutter. This library aims to greatly simplify that process. 
+Jumping into augmented reality development can be tough, especially if you're using Flutter. This library aims to greatly simplify that process.
 
 [Oleksandr Leuschenko's port of ARKit](https://pub.dev/packages/arkit_plugin) removes a ton of the boilerplate required to get an AR app running in Flutter. My goal is to try to extend this port into a simple framework that supports.
 
@@ -38,10 +38,14 @@ Jumping into augmented reality development can be tough, especially if you're us
 * **Event Management:**
   * Intuitive handlers/bindings for user and sensor input.
 
-## Installing
+## Installing/Running
 
 You can install the current (work in progress version) by cloning this repo.
 When a release candidate is ready expect a standalone package!
+
+There's a demo renderer and app in place, just ensure all [flutter_arkit_plugin dependencies](https://pub.dev/packages/arkit_plugin#-installing-tab-) dependencies are installed.
+
+Note that AR apps cannot be run using the iOS simulator as it has no camera access.
 
 ## API Reference
 
@@ -61,6 +65,13 @@ COMING SOON
   * **Shapes/**
     * **sphere.dart**
 
+### Physics/
+
+* Physics mixins allowing models to easily be extended with different behaviors.
+
+  * **movement.dart:** Move a model along one or more axis.
+  * **boundaries.dart:** Check (and execute functions) if a model has exceeded an axis boundary.
+
 ### Renderers/
 
 * Manages the scene displayed to the user, global events, the model manager, and the application's update loop.
@@ -77,7 +88,7 @@ COMING SOON
 
 ### Physics
 
-* Movement
+* ~~Movement~~
 * Collisions
 * Gravity
 
