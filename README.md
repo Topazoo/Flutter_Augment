@@ -16,7 +16,7 @@ Jumping into augmented reality development can be tough, especially if you're us
 [Oleksandr Leuschenko's port of ARKit](https://pub.dev/packages/arkit_plugin) removes a ton of the boilerplate required to get an AR app running in Flutter. My goal is to try to extend this port into a simple framework that supports.
 
 * **Model Management:**
-  * Easy 2D/3D model creation and state management.
+  * Easy 2D/3D model creation and state management. 
   * Model joining with shared and individual attributes.
   * Model parent-child and sibling relationships.
   * Model serialization and deserialization.
@@ -38,6 +38,30 @@ Jumping into augmented reality development can be tough, especially if you're us
 * **Event Management:**
   * Intuitive handlers/bindings for user and sensor input.
 
+## Current Features
+
+* **Model Management:**
+  * Basic model manager that tracks rendered models by key, and can broadcast a state update call to all rendered models
+  * A pre-built sphere :P
+
+####
+
+* **An Engine:**
+  * A basic extendable update loop ([think Unity](https://docs.unity3d.com/Manual/ExecutionOrder.html)) that updates the scene on a specified interval.
+  * Some physics:
+    * Movement - Move models in the scene along the x, y and z-axis.
+
+####
+
+* **Event Management:**
+  * Boundaries:
+    * Detect and execute an optional callback when a model exceeds a specified axis boundary.
+
+####
+
+* **Media Queries:**
+  * Interface for fetching a JSON configuration file stored in assets/config.json
+
 ## Installing/Running
 
 You can install the current (work in progress version) by cloning this repo.
@@ -53,9 +77,10 @@ COMING SOON
 
 ## Library Hierarchy
 
-### Model_Manager/
+### Managers/
 
-* Tracks created ARKitNodes and updates them asynchronously on a loop.
+* **model_manager.dart:** Tracks created ARKitNodes and updates them asynchronously on a loop.
+* **asset_manager.dart:** Allows content to be loaded from files.
 
 ### Models/
 
@@ -74,15 +99,11 @@ COMING SOON
 
 ### Renderers/
 
-* Manages the scene displayed to the user, global events, the model manager, and the application's update loop.
+* Manages the scene displayed to the user, global events, the model manager, and the application's update loop. Displays the scene as a Flutter widget.
 
   * **Base/**
     * **base_renderer.dart:** The base attributes and methods that all renderers share.
-
-### Widgets/
-
-* ARKitNodes (AR objects) extended with tracking information and methods used by the model manager.
-  * **scene_widget.dart:** A Flutter widget tied to a renderer. Displays (contains) the AR application.
+    * **demo_renderer.dart:** A demo renderer to show how renderers can be extended with arbitrary AR application logic.
 
 ## In-Progress
 

@@ -8,11 +8,17 @@ part of AR_Rendering_Library;
 
 class Demo_Renderer extends Base_Renderer {
 
-  Demo_Renderer() : super();
+  @override
+  _Demo_Renderer_State createState() => _Demo_Renderer_State();
+  
+}
+
+class _Demo_Renderer_State extends _Base_Renderer_State {
 
   @override
   void _setup()
   {
     render_model(model: AR_Sphere_Moving()); // Render a moving sphere
   }
+  
 }

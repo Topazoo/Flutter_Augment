@@ -16,8 +16,9 @@ import 'dart:async';
 
 import 'package:arkit_plugin/arkit_plugin.dart';
 import 'package:arkit_plugin/utils/random_string.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_arkit_wrapper/Models/lib.dart';
-import 'package:flutter_arkit_wrapper/Model_Manager/lib.dart';
+import 'package:flutter_arkit_wrapper/Managers/lib.dart';
 
 part 'Base/base_renderer.dart';
 part 'demo_renderer.dart';
