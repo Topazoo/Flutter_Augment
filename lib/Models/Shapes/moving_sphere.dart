@@ -11,8 +11,8 @@ class AR_Sphere_Moving extends AR_Sphere with Movement, Boundaries {
 
   @override
   void update() {
-    move(model: this, y: -.0001, z:-.0001);
-    check_bounds(model: this, bounds: {'y': -.01}, callback: out_of_bounds_callback);
+    move(model: this, y: -.0001, z:-.001);
+    check_bounds(model: this, bounds: {'y': -.05}, callback: out_of_bounds_callback);
   }
 
   void out_of_bounds_callback() => set_position(x: 0, y: 0, z: -.5);

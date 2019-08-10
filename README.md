@@ -57,6 +57,11 @@ Jumping into augmented reality development can be tough, especially if you're us
   * Boundaries:
     * Detect and execute an optional callback when a model exceeds a specified axis boundary.
 
+####
+
+* **Media Queries:**
+  * Interface for fetching a JSON configuration file stored in assets/config.json
+
 ## Installing/Running
 
 You can install the current (work in progress version) by cloning this repo.
@@ -74,7 +79,8 @@ COMING SOON
 
 ### Managers/
 
-* Tracks created ARKitNodes and updates them asynchronously on a loop.
+* **model_manager.dart:** Tracks created ARKitNodes and updates them asynchronously on a loop.
+* **asset_manager.dart:** Allows content to be loaded from files.
 
 ### Models/
 

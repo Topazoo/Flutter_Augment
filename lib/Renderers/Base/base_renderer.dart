@@ -44,7 +44,7 @@ class _Base_Renderer_State extends State<Base_Renderer> with AR_Asset_Manager {
   {
     /* Instantiate model manager, load the configuration and start update timer */
 
-    load_config().then((config)
+    load_config().then((config) // Asset loading must be asynchronous
     {
       this.config = config;
       model_manager = new AR_Model_Manager();
@@ -53,7 +53,7 @@ class _Base_Renderer_State extends State<Base_Renderer> with AR_Asset_Manager {
   }
 
   void render(ARKitController arkitController) {
-  /* Set the controller and delegate application setup to derived class */
+    /* Set the controller and delegate application setup to derived class */
 
     controller = arkitController;
 
@@ -83,7 +83,7 @@ class _Base_Renderer_State extends State<Base_Renderer> with AR_Asset_Manager {
   } 
 
   ARKitSceneView render_scene() => 
-    ARKitSceneView(onARKitViewCreated: render, worldAlignment: ARWorldAlignment.camera);
+    ARKitSceneView(onARKitViewCreated: render);
     /* Initialize the renderer on successfull ARKit instantiation.
        Return a linked Flutter widget to display it */
 
