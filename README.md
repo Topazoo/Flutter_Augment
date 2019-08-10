@@ -70,7 +70,7 @@ COMING SOON
 * Physics mixins allowing models to easily be extended with different behaviors.
 
   * **movement.dart:** Move a model along one or more axis.
-  * **boundaries.dart:** Check (and execute functions) if a model has exceeded an axis boundary...
+  * **boundaries.dart:** Check (and execute functions) if a model has exceeded an axis boundary.
 
 ### Renderers/
 
