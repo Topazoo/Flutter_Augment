@@ -6,8 +6,10 @@ library AR_Rendering_Library;
       in essence the overall AR application logic. It handles adding the models
       to the scene, global events, and the application update loop.
 
-    Models:
+    Renderers:
       - Base: The base model all models inherit from
+      - Demo: A demo renderer to show how renderers can be extended
+              with arbitrary AR application logic.
 */
 
 import 'dart:async';

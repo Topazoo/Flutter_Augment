@@ -13,7 +13,10 @@ part of AR_Models_Library;
         - is_active: Whether the node should be updated.   
 
       Shared Methods:
-        - update(): Called periodically on a loop by the renderer.   
+        - update(): Called periodically on a loop by the renderer.
+        - set_position(): Sets the node position if it exists.
+
+      Shared Properties:    
         - _node: Used by derived classes to instantiate a node when
                  a model is instantiated, instead of passing it via
                  the constructor.     
@@ -30,23 +33,26 @@ class AR_Model {
   ARKitNode get _node => null;
   /* Derived classes can override this to create a node on instantiation */
   
-  AR_Model({ARKitNode node, Vector3 position, bool is_visible = true, bool is_active = true}) : this.is_visible = is_visible, this.is_active = is_active
+  AR_Model({ARKitNode node, Vector3 position, bool is_visible = true, bool is_active = true}) : 
+    this.is_visible = is_visible, this.is_active = is_active
   {
     /* Instantiate at a given position (if given) with a given node (if given). 
        Otherwise default to the node created on instantiation */
 
     (node != null) ? this.node = node : this.node = _node;
     (position != null) ? this.position = position : (node != null) ? this.position = node.position.value : null;
-
   } 
 
   void set_position({double x, double y, double z})
   {
+    /* Set the position of the node if it exists */
+
     if(node != null)
     {
       position.setValues(x, y, z);
       node.position.value = new Vector3(x, y, z);
-      node.position.notifyListeners();
+      node.position.notifyListeners(); /* Fun note: This is supposed to be a debug function only for testing but 
+                                          the listner doesn't fire unless I use it. */
     }
   }
 

@@ -65,6 +65,13 @@ COMING SOON
   * **Shapes/**
     * **sphere.dart**
 
+### Physics/
+
+* Physics mixins allowing models to easily be extended with different behaviors.
+
+  * **movement.dart:** Move a model along one or more axis.
+  * **boundaries.dart:** Check (and execute functions) if a model has exceeded an axis boundary.
+
 ### Renderers/
 
 * Manages the scene displayed to the user, global events, the model manager, and the application's update loop.
@@ -81,7 +88,7 @@ COMING SOON
 
 ### Physics
 
-* Movement
+* ~~Movement~~
 * Collisions
 * Gravity
 
