@@ -74,15 +74,11 @@ COMING SOON
 
 ### Renderers/
 
-* Manages the scene displayed to the user, global events, the model manager, and the application's update loop.
+* Manages the scene displayed to the user, global events, the model manager, and the application's update loop. Displays the scene as a Flutter widget.
 
   * **Base/**
     * **base_renderer.dart:** The base attributes and methods that all renderers share.
-
-### Widgets/
-
-* ARKitNodes (AR objects) extended with tracking information and methods used by the model manager.
-  * **scene_widget.dart:** A Flutter widget tied to a renderer. Displays (contains) the AR application.
+    * **demo_renderer.dart:** A demo renderer to show how renderers can be extended with arbitrary AR application logic.
 
 ## In-Progress
 

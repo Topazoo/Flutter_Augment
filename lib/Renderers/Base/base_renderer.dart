@@ -2,7 +2,8 @@ part of AR_Rendering_Library;
 /*
     Author: Peter Swanson
     Description: Base Renderer
-       Shared logic for managing the scene state and objects in the scene using an ARKitController and a model manager.
+       Shared logic for managing the scene and objects in the scene using an ARKitController and a model manager attached to
+       a Flutter widget.
 
     Shared Attributes:
       - controller: The ARKit controller. It manages the scene and serves as a bridge between 
@@ -16,6 +17,7 @@ part of AR_Rendering_Library;
       - update_loop(): Called when the update timer fires. Updates all active models and calls derived class update logic.
       - render_model(): Render a model to the scene. The model is tracked automatically by the model manager.
       - render_scene(): Calls render() when a controller has been successfully created and linked to the widget displaying the app.
+      - build(): Creates the Flutter widget and renders the app.
 
     Abstract Methods:
       - _setup(): Runs after render(). Overridden by derived classes for specific renderer setup.
@@ -26,7 +28,7 @@ abstract class Base_Renderer extends StatefulWidget {
 
   @override
   _Base_Renderer_State createState() => _Base_Renderer_State();
-  
+
 }
 
 class _Base_Renderer_State extends State<Base_Renderer> {
@@ -80,13 +82,13 @@ class _Base_Renderer_State extends State<Base_Renderer> {
     /* Initialize the renderer on successfull ARKit instantiation.
        Return a linked Flutter widget to display it */
 
+  @override
+  Widget build(BuildContext context) => render_scene();
+  /* Render the scene as a Flutter widget */
+
   void _setup() {}
   /* Overridden in derived classes to add AR application setup logic */
 
   void _update() {} 
   /* Overridden in derived classes to add periodic AR application logic */
- 
-  @override
-  Widget build(BuildContext context) => render_scene();
-  /* Render the scene in a scaffold */
 }
