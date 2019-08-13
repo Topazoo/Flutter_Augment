@@ -11,7 +11,7 @@ class AR_Sphere_Moving extends AR_Sphere with Movement, Boundaries {
 
   @override
   void setup() {
-    apply_color(model: this, image: 'earth2jpg');
+    apply_color(model: this, image: 'earth2.jpg');
   }
 
   @override
