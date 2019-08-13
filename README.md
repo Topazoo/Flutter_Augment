@@ -50,6 +50,7 @@ Jumping into augmented reality development can be tough, especially if you're us
   * A basic extendable update loop ([think Unity](https://docs.unity3d.com/Manual/ExecutionOrder.html)) that updates the scene on a specified interval.
   * Some physics:
     * Movement - Move models in the scene along the x, y and z-axis.
+    * Rotation - Rotate models in the scene along the x, y and z-axis.
 
 ####
 
