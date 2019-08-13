@@ -20,7 +20,7 @@ dependencies:
   flutter:
     sdk: flutter
   arkit_plugin: ^0.2.1
-    #path: external_libs/arkit_plugin #REQUIRED TO LOAD IMAGES FROM FLUTTER /assets (until arkit_plugin pull accepted)
+    # path: external_libs/arkit_plugin
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

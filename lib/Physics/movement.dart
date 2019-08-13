@@ -10,7 +10,7 @@ part of AR_Physics_Library;
 mixin Movement {
 
   void move({AR_Model model, double x = 0, double y = 0, double z = 0}) =>
-  model.set_position(x: model.position.x + x, y: model.position.y + y, z: model.position.z + z);
+  model.set_position(x: model.node.position.value.x + x, y: model.node.position.value.y + y, z: model.node.position.value.z + z);
   // Move the model on the specified axes by the specified amount
 
 }
