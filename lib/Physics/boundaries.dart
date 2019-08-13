@@ -76,7 +76,7 @@ mixin Boundaries {
 
     // Convert the model position to the same format as the bounds and check each axis
     for(MapEntry<String, double> axis in {
-      'x': model.position.x, 'y': model.position.y, 'z': model.position.z
+      'x': model.node.position.value.x, 'y': model.node.position.value.y, 'z': model.node.position.value.z
     }
     .entries)
     {

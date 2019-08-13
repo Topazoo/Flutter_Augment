@@ -26,3 +26,4 @@ part 'Base/graphics.dart';
 part 'Shapes/sphere.dart';
 
 part 'Shapes/moving_sphere.dart';
+part 'Shapes/rotating_sphere.dart';

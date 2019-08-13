@@ -11,12 +11,14 @@ library AR_Physics_Library;
       may be called by that class as if they are methods of that class.
 
     Mixins:
-      - Movement: Methods for moving a model on the x, y or z-axis.
+      - Movement: Move a model on the x, y or z-axis.
+      - Rotation: Rotate a model on the x, y or z-axis.
       - Boundaries: Methods for checking and executing functions if a model has exceeded an axis boundary.
 */
 
 import 'package:flutter_arkit_wrapper/Models/lib.dart';
 
 part 'movement.dart';
+part 'rotation.dart';
 part 'boundaries.dart';
 

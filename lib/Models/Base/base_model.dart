@@ -25,7 +25,6 @@ part of AR_Models_Library;
 class AR_Model with AR_Graphics {
 
   ARKitNode node;
-  Vector.Vector3 position = Vector.Vector3(0, 0, -0.5);
 
   bool is_visible;
   bool is_active;
@@ -37,7 +36,8 @@ class AR_Model with AR_Graphics {
        Otherwise default to the node created on instantiation */
 
     (node != null) ? this.node = node : this.node = _node;
-    (position != null) ? this.position = position : (node != null) ? this.position = node.position.value : null;
+    (position != null && this.node != null) ? this.node.position.value = position : null;
+    (this.node != null) ? this.node.eulerAngles.value = Vector.Vector3.zero() : null;
 
     this.node.geometry.materials.value = new List<ARKitMaterial>();
   } 
@@ -48,9 +48,20 @@ class AR_Model with AR_Graphics {
 
     if(node != null)
     {
-      position.setValues(x, y, z);
       node.position.value = new Vector.Vector3(x, y, z);
       node.position.notifyListeners(); /* Fun note: This is supposed to be a debug function only for testing but 
+                                          the listner doesn't fire unless I use it. */
+    }
+  }
+
+  void set_rotation({double x, double y, double z})
+  {
+    /* Set the rotation of the node if it exists */
+
+    if(node != null)
+    {
+      node.eulerAngles.value = new Vector.Vector3(x, y, z);
+      node.eulerAngles.notifyListeners(); /* Fun note: This is supposed to be a debug function only for testing but 
                                           the listner doesn't fire unless I use it. */
     }
   }
