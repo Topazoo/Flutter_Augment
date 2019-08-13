@@ -13,10 +13,10 @@ part of AR_Rendering_Library;
       - UPDATE_SPEED: The frequency that the update timer should fire.
 
     Shared Methods:
-      - render(): Sets the controller and delegate application setup to derived class.
+      - setup(): Sets the controller and delegate application setup to derived class.
       - update_loop(): Called when the update timer fires. Updates all active models and calls derived class update logic.
       - render_model(): Render a model to the scene. The model is tracked automatically by the model manager.
-      - render_scene(): Calls render() when a controller has been successfully created and linked to the widget displaying the app.
+      - render(): Calls render() when a controller has been successfully created and linked to the widget displaying the app.
       - build(): Creates the Flutter widget and renders the app.
 
     Abstract Methods:
@@ -52,12 +52,14 @@ class _Base_Renderer_State extends State<Base_Renderer> with AR_Asset_Manager {
     });
   }
 
-  void render(ARKitController arkitController) {
-    /* Set the controller and delegate application setup to derived class */
+  void setup(ARKitController arkitController) {
+    /* Set the controller and set up all models (after derived class setup logic) */
 
     controller = arkitController;
 
     _setup();
+
+    model_manager.setup_models();
   }
 
   void update_loop() {
@@ -82,13 +84,13 @@ class _Base_Renderer_State extends State<Base_Renderer> with AR_Asset_Manager {
     return key;
   } 
 
-  ARKitSceneView render_scene() => 
-    ARKitSceneView(onARKitViewCreated: render);
+  ARKitSceneView render() => 
+    ARKitSceneView(onARKitViewCreated: setup);
     /* Initialize the renderer on successfull ARKit instantiation.
        Return a linked Flutter widget to display it */
 
   @override
-  Widget build(BuildContext context) => render_scene();
+  Widget build(BuildContext context) => render();
   /* Render the scene as a Flutter widget */
 
   void _setup() {}

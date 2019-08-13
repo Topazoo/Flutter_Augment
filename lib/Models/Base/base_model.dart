@@ -22,18 +22,15 @@ part of AR_Models_Library;
                  the constructor.     
 */
 
-class AR_Model {
+class AR_Model with AR_Graphics {
 
   ARKitNode node;
-  Vector3 position = Vector3(0, 0, -0.5);
+  Vector.Vector3 position = Vector.Vector3(0, 0, -0.5);
 
   bool is_visible;
   bool is_active;
-
-  ARKitNode get _node => null;
-  /* Derived classes can override this to create a node on instantiation */
   
-  AR_Model({ARKitNode node, Vector3 position, bool is_visible = true, bool is_active = true}) : 
+  AR_Model({ARKitNode node, Vector.Vector3 position, bool is_visible = true, bool is_active = true}) : 
     this.is_visible = is_visible, this.is_active = is_active
   {
     /* Instantiate at a given position (if given) with a given node (if given). 
@@ -41,6 +38,8 @@ class AR_Model {
 
     (node != null) ? this.node = node : this.node = _node;
     (position != null) ? this.position = position : (node != null) ? this.position = node.position.value : null;
+
+    this.node.geometry.materials.value = new List<ARKitMaterial>();
   } 
 
   void set_position({double x, double y, double z})
@@ -50,13 +49,20 @@ class AR_Model {
     if(node != null)
     {
       position.setValues(x, y, z);
-      node.position.value = new Vector3(x, y, z);
+      node.position.value = new Vector.Vector3(x, y, z);
       node.position.notifyListeners(); /* Fun note: This is supposed to be a debug function only for testing but 
                                           the listner doesn't fire unless I use it. */
     }
   }
 
+  ARKitNode get _node => null;
+  /* Derived classes can override this to create a node on instantiation */
+
   void update() {}
   /* Derived classes can override this to add specific functionalities to
      perform each time the main loop executes */
+
+  void setup() {}
+  /* Derived classes can override this to add specific functionalities to
+     perform before the main loop executes */
 }

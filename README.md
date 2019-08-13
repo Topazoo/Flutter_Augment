@@ -61,6 +61,7 @@ Jumping into augmented reality development can be tough, especially if you're us
 
 * **Media Queries:**
   * Interface for fetching a JSON configuration file stored in assets/config.json
+  * Model texture rendering from images stored in assets/images/ ([awaiting accepted pull request](https://github.com/olexale/arkit_flutter_plugin/pull/23))
 
 ## Installing/Running
 

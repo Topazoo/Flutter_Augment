@@ -13,11 +13,16 @@ library AR_Models_Library;
       - Shapes: (Sphere, )
 */
 
+import 'dart:ui';
+
 import 'package:arkit_plugin/arkit_plugin.dart';
-import 'package:vector_math/vector_math_64.dart';
+import 'package:flutter/material.dart';
+import 'package:vector_math/vector_math_64.dart' as Vector;
 import 'package:flutter_arkit_wrapper/Physics/lib.dart';
 
 part 'Base/base_model.dart';
+part 'Base/graphics.dart';
+
 part 'Shapes/sphere.dart';
 
 part 'Shapes/moving_sphere.dart';

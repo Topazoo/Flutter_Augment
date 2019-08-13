@@ -21,4 +21,7 @@ class AR_Model_Manager {
 
   void update_models() => _scene_models.forEach((_, model) => (model.is_active) ? model.update() : null);
   /* Update all models marked active (called in a loop asynchronously by the timer) */
+
+  void setup_models() => _scene_models.forEach((_, model) => model.setup());
+  /* Set up all models marked active (called once on renderer instantiation) */
 }
