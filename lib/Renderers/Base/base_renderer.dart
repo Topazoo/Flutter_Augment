@@ -39,6 +39,7 @@ class _Base_Renderer_State extends State<Base_Renderer> with AR_Asset_Manager {
   Map config;
   
   Timer update_timer;
+  Stopwatch app_timer;
 
   _Base_Renderer_State()
   {
@@ -49,6 +50,7 @@ class _Base_Renderer_State extends State<Base_Renderer> with AR_Asset_Manager {
       this.config = config;
       model_manager = new AR_Model_Manager();
       update_timer = new Timer.periodic(Duration(milliseconds: config['UPDATE_INTERVAL_MS']), (timer) => update_loop());
+      app_timer = new Stopwatch()..start();
     });
   }
 
@@ -63,9 +65,13 @@ class _Base_Renderer_State extends State<Base_Renderer> with AR_Asset_Manager {
   void update_loop() {
     /* Shared periodic AR application logic. Update all active models and call derived class logic */
 
-    model_manager.update_models(); 
+    int elapsed_time = app_timer.elapsedMilliseconds;
+    
+    model_manager.update_models(elapsed_time, config['UPDATE_INTERVAL_MS']); 
 
-    _update();
+    _update(elapsed_time, config['UPDATE_INTERVAL_MS']);
+
+    app_timer.reset();
   }
 
   String render_model({String key, AR_Model model}) {
@@ -94,6 +100,6 @@ class _Base_Renderer_State extends State<Base_Renderer> with AR_Asset_Manager {
   void _setup() {}
   /* Overridden in derived classes to add AR application setup logic */
 
-  void _update() {} 
+  void _update(int elapsed_ms, int interval_ms) {} 
   /* Overridden in derived classes to add periodic AR application logic */
 }

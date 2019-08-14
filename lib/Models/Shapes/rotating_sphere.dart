@@ -12,6 +12,6 @@ class AR_Sphere_Rotating extends AR_Sphere {
   @override
   void _setup() {
     apply_texture(model: this, image: 'earth2.jpg');
-    set_angular_velocity(y: .001);
+    set_angular_velocity(y: .05);
   }
 }
