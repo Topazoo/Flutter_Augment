@@ -20,10 +20,6 @@ mixin AR_Asset_Manager {
     return loaded_asset;
   }
 
-
   Future<Map> load_config([Function callback]) => _load_asset_json('config.json');
   /* Load the configuration file with an optional callback */
-
-  //Future<Map> load_material(String name, [Function callback]) => _load_asset_json('$name.json');
-  /* Load a model material file with an optional callback */
 }

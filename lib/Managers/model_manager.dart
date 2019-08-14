@@ -16,12 +16,9 @@ class AR_Model_Manager {
   AR_Model fetch(String key) => (_scene_models.containsKey(key)) ? _scene_models[key] : null;
   /* Fetch a model by key */
 
-  void store(String key, AR_Model value) => _scene_models[key] = value;
-  /* Store a model with a key to retreive it */
+  void store(String key, AR_Model value) => _scene_models[key] = value..setup();
+  /* Store a model with a key to retreive it. Setup before storing. */
 
   void update_models() => _scene_models.forEach((_, model) => (model.properties.is_active) ? model.update() : null);
   /* Update all models marked active (called in a loop asynchronously by the timer) */
-
-  void setup_models() => _scene_models.forEach((_, model) => model.setup());
-  /* Set up all models marked active (called once on renderer instantiation) */
 }

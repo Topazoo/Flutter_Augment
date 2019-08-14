@@ -9,8 +9,13 @@ library AR_Models_Library;
       (see Model_Manager/model_manager.dart). 
 
     Models:
-      - Base: The base model all models inherit from
-      - Shapes: (Sphere, )
+      - Base: 
+        - base_model: The base model all models inherit from.
+        - graphics: Graphics mixin to apply textures, colors, lighting and other graphics to models.
+        - properties: Used to store the properties associated with a model.
+        
+      - Shapes:
+        -sphere
 */
 
 import 'dart:ui';
@@ -22,7 +27,6 @@ import 'package:flutter_arkit_wrapper/Physics/lib.dart';
 
 part 'Base/base_model.dart';
 part 'Base/graphics.dart';
-part 'Base/physics.dart';
 part 'Base/properties.dart';
 
 part 'Shapes/sphere.dart';

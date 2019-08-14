@@ -89,6 +89,8 @@ COMING SOON
 * ARKitNodes (AR objects) extended with tracking information and methods used by the model manager.
   * **Base/**
     * **base_model.dart:** The base attributes and methods that all models share.
+    * **graphics.dart:** Mixin to apply textures, colors, lighting and other graphics to models.
+    * **properties.dart:** Used to store the properties associated with a model.
   * **Shapes/**
     * **sphere.dart**
 
@@ -97,6 +99,7 @@ COMING SOON
 * Physics mixins allowing models to easily be extended with different behaviors.
 
   * **movement.dart:** Move a model along one or more axis.
+  * **rotation.dart:** Rotate a model along one or more axis.
   * **boundaries.dart:** Check (and execute functions) if a model has exceeded an axis boundary.
 
 ### Renderers/

@@ -13,13 +13,13 @@ part of AR_Rendering_Library;
       - UPDATE_SPEED: The frequency that the update timer should fire.
 
     Shared Methods:
-      - setup(): Sets the controller and delegate application setup to derived class.
+      - setup(): Sets the controller and delegates application setup to derived class.
       - update_loop(): Called when the update timer fires. Updates all active models and calls derived class update logic.
       - render_model(): Render a model to the scene. The model is tracked automatically by the model manager.
       - render(): Calls render() when a controller has been successfully created and linked to the widget displaying the app.
       - build(): Creates the Flutter widget and renders the app.
 
-    Abstract Methods:
+    Extendable Methods:
       - _setup(): Runs after render(). Overridden by derived classes for specific renderer setup.
       - _update(): Runs when the update timer fires. Overridden by derived classes for specific update logic.
 */
@@ -53,13 +53,11 @@ class _Base_Renderer_State extends State<Base_Renderer> with AR_Asset_Manager {
   }
 
   void setup(ARKitController arkitController) {
-    /* Set the controller and set up all models (after derived class setup logic) */
+    /* Set the controller and run derived class setup logic */
 
     controller = arkitController;
 
     _setup();
-
-    model_manager.setup_models();
   }
 
   void update_loop() {

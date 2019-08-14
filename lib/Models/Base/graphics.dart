@@ -1,13 +1,18 @@
 part of AR_Models_Library;
 /*
     Author: Peter Swanson
-    Description: Graphics Mixin 
+    Description: Graphics Mixin
+      Used to apply textures, colors, lighting and other graphics to models.
+
+      Methods:
+        - apply_texture(): Apply an image or color to the model. Images are
+                           loaded from /assets/images/.
 */
 
 mixin AR_Model_Graphics {
-  void apply_color({AR_Model model, Color color, String image})
+  void apply_texture({AR_Model model, Color color, String image})
   {
-    /* Apply a material to the model */
+    /* Apply an image or color to the model */
 
     model.node.geometry.materials.value.add(ARKitMaterial(diffuse: ARKitMaterialProperty(color: color, image: (image != null) ? '$image' : null)));
     model.node.geometry.materials.notifyListeners();
