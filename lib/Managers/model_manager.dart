@@ -19,7 +19,7 @@ class AR_Model_Manager {
   void store(String key, AR_Model value) => _scene_models[key] = value;
   /* Store a model with a key to retreive it */
 
-  void update_models() => _scene_models.forEach((_, model) => (model.is_active) ? model.update() : null);
+  void update_models() => _scene_models.forEach((_, model) => (model.properties.is_active) ? model.update() : null);
   /* Update all models marked active (called in a loop asynchronously by the timer) */
 
   void setup_models() => _scene_models.forEach((_, model) => model.setup());

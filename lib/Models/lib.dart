@@ -22,6 +22,8 @@ import 'package:flutter_arkit_wrapper/Physics/lib.dart';
 
 part 'Base/base_model.dart';
 part 'Base/graphics.dart';
+part 'Base/physics.dart';
+part 'Base/properties.dart';
 
 part 'Shapes/sphere.dart';
 

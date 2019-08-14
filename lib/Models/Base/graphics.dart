@@ -4,7 +4,7 @@ part of AR_Models_Library;
     Description: Graphics Mixin 
 */
 
-mixin AR_Graphics {
+mixin AR_Model_Graphics {
   void apply_color({AR_Model model, Color color, String image})
   {
     /* Apply a material to the model */

@@ -18,7 +18,7 @@ class _Demo_Renderer_State extends _Base_Renderer_State {
   @override
   void _setup()
   {
-    render_model(model: AR_Sphere_Rotating()); // Render a moving sphere
+    render_model(model: AR_Sphere_Moving()); // Render a moving sphere
   }
   
 }

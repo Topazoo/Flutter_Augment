@@ -22,15 +22,13 @@ part of AR_Models_Library;
                  the constructor.     
 */
 
-class AR_Model with AR_Graphics {
+class AR_Model with AR_Model_Graphics {
 
   ARKitNode node;
-
-  bool is_visible;
-  bool is_active;
+  AR_Model_Physics physics;
+  AR_Model_Properties properties;
   
-  AR_Model({ARKitNode node, Vector.Vector3 position, bool is_visible = true, bool is_active = true}) : 
-    this.is_visible = is_visible, this.is_active = is_active
+  AR_Model({ARKitNode node, Vector.Vector3 position, bool has_physics = true, bool is_visible = true, bool is_active = true})
   {
     /* Instantiate at a given position (if given) with a given node (if given). 
        Otherwise default to the node created on instantiation */
@@ -38,6 +36,11 @@ class AR_Model with AR_Graphics {
     (node != null) ? this.node = node : this.node = _node;
     (position != null && this.node != null) ? this.node.position.value = position : null;
     (this.node != null) ? this.node.eulerAngles.value = Vector.Vector3.zero() : null;
+
+    properties = new AR_Model_Properties(is_active: is_active, is_visible: is_active);
+    
+    if(has_physics)
+      physics = new AR_Model_Physics(model: this);
 
     this.node.geometry.materials.value = new List<ARKitMaterial>();
   } 
@@ -69,11 +72,26 @@ class AR_Model with AR_Graphics {
   ARKitNode get _node => null;
   /* Derived classes can override this to create a node on instantiation */
 
-  void update() {}
+  void update()
+  {
+    /* Update logic shared by all models */
+    
+    // Update physics if they exist
+    if(physics != null)
+      physics.physics_update();
+
+    // Derived class update logic
+    _update();
+  }
+
+  void setup() => _setup();
+  /* Setup logic shared by all models */
+
+  void _update() {}
   /* Derived classes can override this to add specific functionalities to
      perform each time the main loop executes */
 
-  void setup() {}
+  void _setup() {}
   /* Derived classes can override this to add specific functionalities to
      perform before the main loop executes */
 }
