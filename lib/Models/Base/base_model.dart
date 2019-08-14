@@ -87,22 +87,24 @@ class AR_Model with AR_Model_Graphics, Movement, Rotation, Boundaries {
   void set_bounds({Map bounds, Function callback}) {properties.bounds = bounds; properties.out_of_bounds_callback = callback;}
   /* Set position boundaries and a callback to fire if they are exceeded */
 
-  void _physics_update() {
+  void _physics_update(int elapsed_ms, int interval_ms) {
     /* Render all persistent physics on model update.
 
        Rotate the model if angular velocity is set.
        Move the model if velocity is set and check if it has exceeded it's bounds.
     */
 
-    rotate(model: this, x: properties.angular_velocity.x, y: properties.angular_velocity.y, z: properties.angular_velocity.z);
-    move(model: this, x: properties.velocity.x, y: properties.velocity.y, z: properties.velocity.z);
+    double smoothing = elapsed_ms / interval_ms;
+
+    rotate(model: this, x: properties.angular_velocity.x * smoothing, y: properties.angular_velocity.y * smoothing, z: properties.angular_velocity.z * smoothing);
+    move(model: this, x: properties.velocity.x * smoothing, y: properties.velocity.y * smoothing, z: properties.velocity.z * smoothing);
     check_bounds(model: this, bounds: properties.bounds, callback: properties.out_of_bounds_callback);
   }
 
   ARKitNode get _node => null;
   /* Derived classes can override this to create a node on instantiation */
 
-  void update()
+  void update(int elapsed_ms, int interval_ms)
   {
     /* Update logic shared by all models.
       
@@ -110,7 +112,7 @@ class AR_Model with AR_Model_Graphics, Movement, Rotation, Boundaries {
     */
     
     if(properties.has_physics)
-      _physics_update();
+      _physics_update(elapsed_ms, interval_ms);
 
     _update();
   }
